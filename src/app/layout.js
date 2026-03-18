@@ -22,6 +22,12 @@ const bevietnampro = Be_Vietnam_Pro({
   variable: "--font-bevietnampro",
 });
 
+export const metadata = {
+  icons: {
+    icon: '/favicon.png',
+  },
+  title: "AI Arbitrage - AI-Driven Crypto Arbitrage Platform",
+};
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${syne.variable} ${dmsans.variable}`}>
