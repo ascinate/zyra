@@ -337,6 +337,7 @@ a {
   border-radius: 20px;
   height: 400px;
   padding: 0 30px 30px 30px;
+  position: relative;
   border-image: linear-gradient(to right, darkblue, darkorchid) 1;
 }
 
@@ -569,6 +570,83 @@ a {
 
 }
 
+.card-new::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: 12px;
+
+  background: linear-gradient(178deg, #01b1c666, #12b26f00, #01b2c600) 0 0 / 100% 300%;
+
+  background-size: 300% 300%;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+
+.card-new:hover::before {
+  opacity: 1;
+  animation: borderFlow 3s linear infinite;
+}
+
+
+.card-new::after {
+
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(300px circle at var(--x) var(--y),
+      rgba(1, 177, 198, 0.35),
+      transparent 40%);
+
+  opacity: 0;
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
+
+/* show only hover */
+.card-new .only-hovers {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.card-new img {
+  z-index: 2;
+}
+
+.card-new:hover .only-hovers {
+  opacity: 1;
+}
+
+@keyframes borderFlow {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+
+}
+
 .crad-text:hover.bottoms-aro01::after {
   background: url(/real-times01-rights.png) no-repeat;
   background-size: 70%;
@@ -578,6 +656,19 @@ a {
 .img-gray {
   filter: grayscale(1) brightness(1.2);
 }
+
+.hover-imgs015 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+
+
+
 
 .img-color {
   mask-image: radial-gradient(circle 140px at var(--x) var(--y),

@@ -31,6 +31,18 @@ export default function Home() {
   };
 
 
+  const boxRef = useRef(null);
+  const [poss, setPoss] = useState({ x: 0, y: 0 });
+
+  const handleMovee = (e) => {
+    const rect = boxRef.current.getBoundingClientRect();
+
+    setPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+  }
+
   return (
     <div className="float-start w-100">
       <Navications />
@@ -65,9 +77,12 @@ export default function Home() {
                         priority
                         className="hover-imgs"
                       />
-
+                      <div className="only-hovers">
+                        <WaveBackground />
+                      </div>
 
                     </div>
+
                   </div>
                   <h4> Autonomous AI Strategy Routing </h4>
                 </div>
@@ -93,9 +108,13 @@ export default function Home() {
                         priority
                         className="hover-imgs"
                       />
+                      <div className="only-hovers">
+                        <WaveBackground />
+                      </div>
 
 
                     </div>
+
                   </div>
                   <h4> Multi-Exchange Opportunity Detection </h4>
                 </div>
@@ -121,7 +140,9 @@ export default function Home() {
                         priority
                         className="hover-imgs"
                       />
-
+                      <div className="only-hovers">
+                        <WaveBackground />
+                      </div>
 
                     </div>
                   </div>
@@ -170,6 +191,9 @@ export default function Home() {
                     fill
                     className="img-color"
                   />
+                  <div className="only-hovers">
+                    <WaveBackground />
+                  </div>
                 </div>
                 <div className="crad-text text-center bottoms-aro01">
                   <h4> Sub-10µs <br /> execution  </h4>
