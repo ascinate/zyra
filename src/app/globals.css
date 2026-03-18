@@ -419,6 +419,8 @@ a {
   content: "";
   background: url(/real-times01.png) no-repeat;
   background-size: 70%;
+  transition: all 0.5s;
+  transform: rotate(0);
 }
 
 
@@ -434,7 +436,7 @@ a {
 
 .right-aro01::after {
   position: absolute;
-  left: -100px;
+  left: -121px;
   top: 10px;
   content: "";
   width: 125px;
@@ -499,10 +501,15 @@ a {
   display: inline-block;
   cursor: pointer;
   height: 580px;
-  width: 350px;
+  /* width: 350px; */
+  width: 100%;
+  max-width: 350px;
+  /* image max width */
+  aspect-ratio: 350/580;
   /* image max width */
 
   margin: auto;
+  overflow: hidden;
 }
 
 .middle-iamgs img.img-color {
@@ -511,19 +518,74 @@ a {
   left: -25px;
 }
 
-/* outline / grayscale image */
+.crad-text h4 {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+  transition: color .4s ease;
+}
+
+.crad-text h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #01B1C6, #12B26F);
+  transition: width .4s ease;
+
+}
+
+.crad-text:hover h4 {
+  color: #01B1C6;
+}
+
+.crad-text:hover h4::after {
+  width: 100%;
+}
+
+
+
+.crad-text:hover.left-aro01:after {
+  transform: rotate(-30deg);
+  background: url(/hover-hlines01.png) no-repeat;
+  background-size: 70%;
+
+}
+
+.crad-text:hover.left-aro01::after {
+  transform: rotate(-30deg);
+  background: url(/hover-hlines01.png) no-repeat;
+  background-size: 70%;
+
+}
+
+.crad-text:hover.right-aro01::after {
+  transform: rotate(30deg);
+  background: url(/real-times01-rights.png) no-repeat;
+  background-size: 70%;
+
+
+}
+
+.crad-text:hover.bottoms-aro01::after {
+  background: url(/real-times01-rights.png) no-repeat;
+  background-size: 70%;
+  transform: rotate(-45deg);
+}
+
 .img-gray {
   filter: grayscale(1) brightness(1.2);
 }
 
-/* color reveal image */
 .img-color {
-  mask-image: radial-gradient(circle 200px at var(--x) var(--y),
+  mask-image: radial-gradient(circle 140px at var(--x) var(--y),
       rgba(0, 0, 0, 1) 0%,
       rgba(0, 0, 0, 1) 40%,
       rgba(0, 0, 0, 0) 80%);
 
-  -webkit-mask-image: radial-gradient(circle 200px at var(--x) var(--y),
+  -webkit-mask-image: radial-gradient(circle 140px at var(--x) var(--y),
       rgba(0, 0, 0, 1) 0%,
       rgba(0, 0, 0, 1) 40%,
       rgba(0, 0, 0, 0) 80%);
