@@ -191,9 +191,7 @@ export default function Home() {
                     fill
                     className="img-color"
                   />
-                  <div className="only-hovers">
-                    <WaveBackground />
-                  </div>
+
                 </div>
                 <div className="crad-text text-center bottoms-aro01">
                   <h4> Sub-10µs <br /> execution  </h4>
