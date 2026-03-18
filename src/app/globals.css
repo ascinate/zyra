@@ -336,7 +336,7 @@ a {
   background: linear-gradient(177deg, rgba(237, 245, 244, 1) 0%, rgba(255, 255, 255, 1) 100%);
   border-radius: 20px;
   height: 400px;
-  padding: 30px;
+  padding: 0 30px 30px 30px;
   border-image: linear-gradient(to right, darkblue, darkorchid) 1;
 }
 
@@ -355,8 +355,34 @@ a {
   padding: 90px 0;
 }
 
+.hover-imgs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.card-new:hover .hover-imgs {
+  visibility: visible;
+  opacity: 1;
+}
+
+.nora-img {}
+
+.card-new:hover .nora-img {
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+
 .capitals-div01 {
-  background: #00E0FF;
+  background: url(/bg-darks01.png) no-repeat;
+  background-size: cover;
+  width: 100%;
   padding: 90px 0;
   margin-top: 90px;
 }
@@ -365,14 +391,14 @@ a {
   font-family: var(--font-syne);
   font-size: 30px;
   font-weight: 700;
-  color: var(--foreground);
+  color: var(--background);
 }
 
 .crad-text h4 {
   font-family: var(--font-syne);
   font-size: 22px;
   font-weight: 700;
-  color: var(--foreground);
+  color: var(--background);
 }
 
 .top-mains01 {
@@ -395,12 +421,15 @@ a {
   background-size: 70%;
 }
 
+
+
 .middle-iamgs img {
   width: 95%;
   height: auto !important;
   margin: auto;
   text-align: center;
   display: block;
+  object-fit: contain;
 }
 
 .right-aro01::after {
@@ -451,6 +480,11 @@ a {
   pointer-events: none;
 }
 
+.canvas-bg img {
+  width: 100% !important;
+  height: auto !important;
+}
+
 .hover-canvas {
   width: 100%;
   height: 100%;
@@ -458,6 +492,67 @@ a {
 }
 
 
+/* css hover effets */
+
+.middle-iamgs {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  height: 580px;
+  width: 350px;
+  /* image max width */
+
+  margin: auto;
+}
+
+.middle-iamgs img.img-color {
+  position: absolute;
+  top: 25px;
+  left: -25px;
+}
+
+/* outline / grayscale image */
+.img-gray {
+  filter: grayscale(1) brightness(1.2);
+}
+
+/* color reveal image */
+.img-color {
+  mask-image: radial-gradient(circle 200px at var(--x) var(--y),
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 40%,
+      rgba(0, 0, 0, 0) 80%);
+
+  -webkit-mask-image: radial-gradient(circle 200px at var(--x) var(--y),
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 40%,
+      rgba(0, 0, 0, 0) 80%);
+}
+
+.btn {
+  border-radius: 0 !important;
+}
+
+.bg-names-bg015 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-names-bg015 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.capitals-div01 .container {
+  position: relative;
+  z-index: 2;
+}
 
 @media (min-width: 1200px) {
 

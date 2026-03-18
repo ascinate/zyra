@@ -5,7 +5,8 @@ import Navications from "./components/Navbar";
 import Banner from "./components/Banner";
 import LogoSlider from "./components/LogoSlider";
 import { useRef, useState } from "react";
-import HoverCanvas from "./components/HoverCanvas";
+import WaveBackground from "./components/WaveBackground";
+
 
 export default function Home() {
   const [hover, setHover] = useState(false);
@@ -15,6 +16,18 @@ export default function Home() {
 
   const handleLeave = () => {
     canvasRef.current.stopAnimation();
+  };
+
+  const containerRef = useRef(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  const handleMove = (e) => {
+    const rect = containerRef.current.getBoundingClientRect();
+
+    setPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
   };
 
 
@@ -33,12 +46,27 @@ export default function Home() {
           <div className="container">
             <div className="row row-cols-1 row-cols-lg-3 gy-4">
               <div className="col">
-                <div className="d-block card-new text-center"
-                  onMouseEnter={() => setHover(true)}
-                  onMouseLeave={() => setHover(false)}>
+                <div className="d-block card-new text-center">
                   <div className="position-relative">
                     <div className="canvas-bg">
-                      <HoverCanvas />
+                      <Image
+                        src="/Artificial-intelligence-removebg-preview.png"
+                        alt="Next.js logo"
+                        width={500}
+                        height={500}
+                        priority
+                        className="nora-img"
+                      />
+                      <Image
+                        src="/output-onlinegiftools2.gif"
+                        alt="Next.js logo"
+                        width={500}
+                        height={500}
+                        priority
+                        className="hover-imgs"
+                      />
+
+
                     </div>
                   </div>
                   <h4> Autonomous AI Strategy Routing </h4>
@@ -47,16 +75,27 @@ export default function Home() {
               <div className="col">
                 <div className="d-block card-new text-center"
                 >
-                  <div className="videso-sections">
-                    <video
+                  <div className="position-relative">
+                    <div className="canvas-bg">
+                      <Image
+                        src="/stesp234.png"
+                        alt="Next.js logo"
+                        width={500}
+                        height={500}
+                        priority
+                        className="nora-img"
+                      />
+                      <Image
+                        src="/stesp23.gif"
+                        alt="Next.js logo"
+                        width={500}
+                        height={500}
+                        priority
+                        className="hover-imgs"
+                      />
 
-                      muted
-                      loop
-                      playsInline
-                      className="w-100 h-100 object-cover"
-                    >
-                      <source src="/grok-video-7995da82-6d6e-4495-9743-7b82df71653f.mp4" type="video/mp4" />
-                    </video>
+
+                    </div>
                   </div>
                   <h4> Multi-Exchange Opportunity Detection </h4>
                 </div>
@@ -64,16 +103,27 @@ export default function Home() {
               <div className="col">
                 <div className="d-block card-new text-center"
                 >
-                  <div className="videso-sections">
-                    <video
+                  <div className="position-relative">
+                    <div className="canvas-bg">
+                      <Image
+                        src="/ai-tools015.png"
+                        alt="Next.js logo"
+                        width={500}
+                        height={500}
+                        priority
+                        className="nora-img"
+                      />
+                      <Image
+                        src="/ai-last.gif"
+                        alt="Next.js logo"
+                        width={500}
+                        height={500}
+                        priority
+                        className="hover-imgs"
+                      />
 
-                      muted
-                      loop
-                      playsInline
-                      className="w-100 h-100 object-cover"
-                    >
-                      <source src="/grok-video-7995da82-6d6e-4495-9743-7b82df71653f.mp4" type="video/mp4" />
-                    </video>
+
+                    </div>
                   </div>
                   <h4> Real-Time Capital
                     Deployment </h4>
@@ -83,7 +133,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="float-start w-100 capitals-div01">
+        <section className="float-start position-relative w-100 capitals-div01">
           <div className="container">
             <h2 className="text-center"> Why Capital Chooses <br /> Zyra Capital </h2>
             <div className="row top-mains01 stretch">
@@ -96,13 +146,29 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-lg-4">
-                <div className="middle-iamgs">
+                <div
+                  ref={containerRef}
+                  className="middle-iamgs"
+                  onMouseMove={handleMove}
+                  style={{
+                    "--x": `${pos.x}px`,
+                    "--y": `${pos.y}px`,
+                  }}
+                >
+                  {/* grayscale image */}
                   <Image
-                    src="/1st.png"
-                    alt="Next.js logo"
-                    width={647}
-                    height={1136}
-                    priority
+                    src="/1st1.png"
+                    alt="image"
+                    fill
+                    className="img-gray"
+                  />
+
+                  {/* color image */}
+                  <Image
+                    src="/2nd2.png"
+                    alt="image"
+                    fill
+                    className="img-color"
                   />
                 </div>
                 <div className="crad-text text-center bottoms-aro01">
@@ -120,7 +186,19 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div className="bg-names-bg015">
+
+            <Image
+              src="/bg-darks01.gif"
+              alt="Next.js logo"
+              width={1152}
+              height={664}
+              className="bg-rounds"
+            />
+
+          </div>
         </section>
+
       </main>
 
     </div>
